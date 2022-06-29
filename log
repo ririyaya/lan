@@ -1,0 +1,197 @@
+https://maimai.feishu.cn/wiki/wikcn3VBKTx18yhJaEKzpS06pnb#
+
+https://maimai.feishu.cn/docs/doccnrj0pIqjpToIuaftEbQ1d1g
+https://maimai.feishu.cn/docs/doccn7EYq7y5yDQIEsU6MtiYyqc
+https://maimai.feishu.cn/docs/doccnS3rz073yX0cXNwNfdFesTc
+
+https://maimai.feishu.cn/wiki/wikcncIwNHcIwwmmrm1Vpsf88qf
+https://maimai.feishu.cn/wiki/wikcn6ACKUbKvZlzTwfPqL3LdBe
+https://maimai.feishu.cn/wiki/wikcnlNUcUFjSgK4nmV9Oy06LDg
+https://maimai.feishu.cn/wiki/wikcnKIY0043y8eL2AlACG584Th
+https://maimai.feishu.cn/wiki/wikcnN5yKGDePxWM5oqip3A9ptf
+https://maimai.feishu.cn/wiki/wikcnsuJqxqXAh8D1btVSyVKOAf
+
+https://www.udacity.com/course/ab-testing--ud257
+
+https://maimai.feishu.cn/wiki/wikcnyZiqgqvTjYd5DPiLjrUMfd
+https://maimai.feishu.cn/wiki/wikcnDLJVe4g7JQ6tuptrMKSo9b
+https://maimai.feishu.cn/wiki/wikcnILVV9dDEGyKzYeLBY2TiFe
+
+
+https://www.jianshu.com/p/4dca99ffc0b4
+https://google.github.io/styleguide/pyguide.html
+
+
+https://maimai.feishu.cn/wiki/wikcnAMs5sxRwCc1Jo9maOYCvOb
+https://maimai.feishu.cn/wiki/wikcnBtjqA59dF5r2fJRleaAnXb
+https://maimai.feishu.cn/wiki/wikcnlrV0eJ7qsSQyW4VmqBAQsd
+https://maimai.feishu.cn/wiki/wikcnUjL6LsMPrhCXpJOGTkQNrh
+
+
+
+
+
+
+sudo service clickhouse-server start
+clickhouse-client --port 9000 --host 127.0.0.1 --password 6824 
+登录
+
+uid= 233854691
+
+
+SELECT     arrayJoin(    arrayMap(x -> yesterday()-x, range(9))    ) AS anchor
+
+c_uid=7622068  and b_uid=231915453          mid=1058770251        mid=1229725806		mid=1233814625
+
+打点  
+big_search_request
+page_view
+
+
+
+ visitParamExtractString(params, 'query') show_text,
+                --     visitParamExtractString(params, 'ptype') ttype
+
+
+消息
+dw_im_fe_events_di
+dw_message_im_chat_events
+dw_im_events
+
+
+
+
+DROP TABLE IF EXISTS tmp.groundforcircle_Quadrant_yangxing on cluster  ch_cluster1;
+CREATE TABLE if not exists tmp.groundforcircle_Quadrant_yangxing on cluster   ch_cluster1
+(
+        cid      UInt32,
+        cname	String,
+        verified	UInt32 ,
+        circle_wau	UInt32 ,
+        Quadrant    UInt32 ,
+        d  Date
+)
+ENGINE = ReplicatedMergeTree('/clickhouse/tables/tmp/groundforcircle_Quadrant_yangxing', '{host}-{instance}')
+ORDER BY (cid)
+SETTINGS index_granularity = 8192
+; 
+
+insert into tmp.groundforcircle_Quadrant_yangxing ( cid,cname,verified,circle_wau,Quadrant,d)
+values ( ),
+
+
+
+
+
+
+dwm_dw_growth_user_active_di
+dws_dw_office_user_tag_week
+dws_dw_office_user_tag_month
+
+    d,
+    carrier,
+    sms_provider,
+    arrayJoin(['all', category]) as category,
+    uniqExact(emobile) as send_suc_uv,
+    uniqExactIf(emobile,callback_status=1) as report_suc_uv,
+    countIf(cnt_len<71) 
+        + countIf(cnt_len>=71 and cnt_len<=134)*2 
+        + countIf(cnt_len>=135 and cnt_len<=201)*3 
+        + countIf(cnt_len>=202)*4 as send_suc_pv,
+    countIf(cnt_len<71 and callback_status=1) 
+        + countIf(cnt_len>=71 and cnt_len<=134 and callback_status=1)*2 
+        + countIf(cnt_len>=135 and cnt_len<=201 and callback_status=1)*3 
+        + countIf(cnt_len>=202 and callback_status=1)*4 as report_suc_pv,
+    uniqExactIf(emobile, is_dau_1=1 and callback_status=1) as send_is_login
+	
+	
+	def ch_run(sql, host='clickhouse-default', port=8123, user='yangxing_v', passwd='g1PptH0U'):
+    import requests
+    url = 'http://%s.int.taou.com:%s/?user=%s&password=%s' % (host, port, user, passwd)
+    r = requests.post(url, data=sql)
+    res = r.content
+    print((res.decode('UTF-8')))
+    if r.status_code != requests.codes.ok:
+        print ("run sql: %s, error: %s" % (sql, str(res)))
+        return False
+    return res
+
+
+ch_run('select * from dim.dim_user where uid=1')
+
+
+
+
+数据科学
+ Data Science
+和业务部门一起达成目标.
+定义, 监控, 归因分析, 提升指标
+ 为业务决策提供科学的数据支持
+ 用户画像和数据挖掘
+ 
+ de
+埋点: 规范, 工具, 验证
+ 数仓: 设计, ETL, 调度
+ 数据治理: 库表管理, 指标管理, 血缘管理, 数据质量监控
+ 工具: BI(Redash, Insight，自研), 监控报警, Polaris, Hue, ...
+ 报表: 指标口径定义, 核心报表正确性
+ API: 统一的Data API
+ 
+ 
+  主要看两个点：一个是心态，是认为这种现象是需要解决的问题，还是认为这个现象不合理没法工作；
+	一个是方法，是走加班来解决，还是通过2080法则抓重点放小问题来解决，讲具体的经历的时候，面试官可以看抓重点的能力。
+  
+  
+1、指标体系搭建:结合业务流程梳理、业务调研等方式，搭建数据指标体系，为业务发展状况监控提供更全面抓手，对 重点数据环节深入分析并撰写数据分析报告，利用数据赋能业务
+2、数据可视化:深度调研业务侧数据关注重点与使用习惯等，搭建数据可视化报表，提升数据使用便捷度与可读性，方 便业务决策
+3、数据支持:提供周报等常规数据，从数据角度设置合理业绩目标标准，定期跟踪各个板块业务目标达成情况，为决策 层评估各条线业务发展提供数据参考
+
+1、数据分析:日常监控各项业务指标，对异动数据深入挖掘业务问题，对接产品、运营多个团队，同步并跟踪数据结论 落地效果
+2、数据埋点:梳理当前数据现状，结合业务需求，对数据缺失环节设计埋点方案，持续推动埋点方案执行与埋点数据验 证，补齐数据链路缺失环节，有效支持业务
+
+
+数据科学
+ Data Science
+和业务部门一起达成目标.
+定义, 监控, 归因分析, 提升指标
+ 为业务决策提供科学的数据支持
+ 用户画像和数据挖掘
+ 
+ de
+埋点: 规范, 工具, 验证
+ 数仓: 设计, ETL, 调度
+ 数据治理: 库表管理, 指标管理, 血缘管理, 数据质量监控
+ 工具: BI(Redash, Insight，自研), 监控报警, Polaris, Hue, ...
+ 报表: 指标口径定义, 核心报表正确性
+ API: 统一的Data API
+ 
+ 
+  主要看两个点：一个是心态，是认为这种现象是需要解决的问题，还是认为这个现象不合理没法工作；
+	一个是方法，是走加班来解决，还是通过2080法则抓重点放小问题来解决，讲具体的经历的时候，面试官可以看抓重点的能力。
+  
+  
+1、指标体系搭建:结合业务流程梳理、业务调研等方式，搭建数据指标体系，为业务发展状况监控提供更全面抓手，对 重点数据环节深入分析并撰写数据分析报告，利用数据赋能业务
+2、数据可视化:深度调研业务侧数据关注重点与使用习惯等，搭建数据可视化报表，提升数据使用便捷度与可读性，方 便业务决策
+3、数据支持:提供周报等常规数据，从数据角度设置合理业绩目标标准，定期跟踪各个板块业务目标达成情况，为决策 层评估各条线业务发展提供数据参考
+
+1、数据分析:日常监控各项业务指标，对异动数据深入挖掘业务问题，对接产品、运营多个团队，同步并跟踪数据结论 落地效果
+2、数据埋点:梳理当前数据现状，结合业务需求，对数据缺失环节设计埋点方案，持续推动埋点方案执行与埋点数据验 证，补齐数据链路缺失环节，有效支持业务
+
+
+
+有深度的归因分析应该长什么样子？
+归因分析通常有下面几个阶段：
+- 现象 
+  - 深度现象 
+    - 原因 
+      - TODO
+有时，原因容易和深度现象混淆。
+一般原因应该close到下述3种：
+1. 产品/策略改动
+2. 客观现象（比如，每月新注册人数不变，每月留存不变，MAU不会无限上涨，而会有个极值）
+3. 外界人群变化（比如，过了招聘季节，招聘需求人群自然变少）
+有了这样的原因，可操作的TODO会自然浮现。
+
+想做到这一步，需要把 “指标拆解”变成“数据建模” 。
+指标拆解是平行的。
+数据建模是有逻辑的，把指标结构成可以由一些列参数控制的结果，每一个参数都对应着某个原因。
